@@ -15,4 +15,23 @@ def movementArr
     movement
 end
 
-print movementArr()
+def location
+    moves = movementArr()
+    horArr = [0, 1, 2, 3]
+    verArr = [0, 1, 2, 3]
+    locHash = { vert: 0, hor: 0 }
+
+    moves.each do |e|
+        if e[0] == "F"
+            puts e[0]
+        elsif e[0] == "B"
+            puts e[0]
+        elsif e[0] == "R"
+            puts e[0]
+        elsif e[0] == "L"
+            puts e[0]
+        end
+    end
+end
+
+location()
