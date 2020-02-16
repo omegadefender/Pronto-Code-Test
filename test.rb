@@ -57,6 +57,15 @@ end
 
 # Calculates the shortest distance for the robot to get back home
 def distanceToStart
+    hash = location()
+    distance = 0
+    if hash[:vert] < 0
+        hash[:vert] = hash[:vert] * -1
+    end
+    if hash[:hor] < 0
+        hash[:hor] = hash[:hor] * -1
+    end
+    distance = hash[:vert] + hash[:hor]
 end
 
-puts location()
+puts distanceToStart()
