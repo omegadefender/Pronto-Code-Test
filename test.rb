@@ -26,42 +26,30 @@ def location
     locHash = { :vert => 0, :hor => 0 }
 
     moves.each do |e|
+        units = e[1].to_i
         if e[0] == "F" && facing == 'North'
-            units = e[1].to_i
             locHash[:vert] = locHash[:vert] + units
         elsif e[0] == "F" && facing == 'East'
-            units = e[1].to_i
             locHash[:hor] = locHash[:hor] + units
         elsif e[0] == "F" && facing == 'South'
-            units = e[1].to_i
             locHash[:vert] = locHash[:vert] - units
         elsif e[0] == "F" && facing == 'West'
-            units = e[1].to_i
             locHash[:hor] = locHash[:hor] - units
         elsif e[0] == "B" && facing == 'North'
-            units = e[1].to_i
             locHash[:vert] = locHash[:vert] - units
         elsif e[0] == "B" && facing == 'East'
-            units = e[1].to_i
             locHash[:hor] = locHash[:hor] - units
         elsif e[0] == "B" && facing == 'South'
-            units = e[1].to_i
             locHash[:vert] = locHash[:vert] + units
         elsif e[0] == "B" && facing == 'West'
-            units = e[1].to_i
             locHash[:hor] = locHash[:hor] + units
+# The direction elsifs need to be re-written to account for commands above 3 ie: R4 won't do anything as facing Arr only goes 3 indexes.
         elsif e[0] == "R"
-            units = e[1].to_i
-            indNum = facingHash[facing]
-            indNum = indNum + units
+            indNum = facingHash[facing] + units
             facing = facingArr[indNum]
-            puts facing
         elsif e[0] == "L"
-            units = e[1].to_i
-            indNum = facingHash[facing]
-            indNum = indNum - units
+            indNum = facingHash[facing] - units
             facing = facingArr[indNum]
-            puts facing
         end
     end
 end
