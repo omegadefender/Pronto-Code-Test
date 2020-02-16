@@ -3,11 +3,13 @@ puts "Follow each character by a number of units eg. B1 means move back one unit
 puts "Seperate each instruction by a comma, eg. `F1,R1,B2,L1,B3`"
 puts "Enter your movement instructions and the program will tell you the shortest distance to get back home"
 
+# User Input Function 
 def prompt(*args)
     print(*args)
     gets
 end
 
+# Splits User Commands into Array
 def movementArr
     movement = prompt "Movement: "
     movement = movement.split(",")
@@ -15,6 +17,7 @@ def movementArr
     movement
 end
 
+# Sets the final location of Robot, after Commands have been processed
 def location
     moves = movementArr()
     horArr = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
@@ -42,6 +45,10 @@ def location
             puts locHash
         end
     end
+end
+
+# Calculates the shortest distance for the robot to get back home
+def distanceToStart
 end
 
 location()
