@@ -52,10 +52,11 @@ def location
             facing = facingArr[indNum]
         end
     end
+    locHash
 end
 
 # Calculates the shortest distance for the robot to get back home
 def distanceToStart
 end
 
-location()
+puts location()
