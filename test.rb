@@ -1,7 +1,8 @@
-puts "Give commands to the ROBOT\nF = forward\nB = Backwards\nR = turn right 90 degrees\nL = turn left 90 degrees"
-puts "Follow each character by a number of units eg. B1 means move back one unit, R2 means turn right 90 degrees twice"
+puts "\nThis is a coding challenge for Pronto Woven\nGive commands to the ROBOT\n\n"
+puts "F = forward\nB = Backwards\nR = turn right 90 degrees\nL = turn left 90 degrees\n"
+puts "\nFollow each character by a number of units eg. B1 means move back one unit, R2 means turn right 90 degrees twice"
 puts "Seperate each instruction by a comma, eg. `F1,R1,B2,L1,B3`"
-puts "Enter your movement instructions and the program will tell you the shortest distance to get back home"
+puts "Enter your movement instructions and the program will tell you the shortest distance to get back home\n\n"
 
 # User Input Function 
 def prompt(*args)
@@ -43,7 +44,7 @@ def location
             locHash[:vert] = locHash[:vert] + units
         elsif e[0] == "B" && facing == 'West'
             locHash[:hor] = locHash[:hor] + units
-# The direction elsifs need to be re-written to account for commands above 3 ie: R4 won't do anything as facing Arr only goes 3 indexes.
+# The direction elsifs could be re-written to account for commands above 3 ie: if user inputs `R4` it won't do anything as facingArr only goes 3 indexes.
         elsif e[0] == "R"
             indNum = facingHash[facing] + units
             facing = facingArr[indNum]
@@ -58,7 +59,6 @@ end
 # Calculates the shortest distance for the robot to get back home
 def distanceToStart
     hash = location()
-    distance = 0
     if hash[:vert] < 0
         hash[:vert] = hash[:vert] * -1
     end
@@ -68,4 +68,4 @@ def distanceToStart
     distance = hash[:vert] + hash[:hor]
 end
 
-puts distanceToStart()
+puts "The shortest distance back to your starting point is " + distanceToStart().to_s + " units"
